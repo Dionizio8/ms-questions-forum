@@ -1,6 +1,7 @@
 package br.com.alura.forum.controller;
 
 import br.com.alura.forum.controller.form.TopicForm;
+import br.com.alura.forum.dto.TopicDetailsDto;
 import br.com.alura.forum.dto.TopicDto;
 import br.com.alura.forum.model.Topic;
 import br.com.alura.forum.repository.CourseRepository;
@@ -15,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/topics")
@@ -44,5 +46,11 @@ public class TopicsController {
 
         URI uri = uriBuilder.path("topics/{id}").buildAndExpand(topic.getId()).toUri();
         return ResponseEntity.created(uri).body(new TopicDto(topic));
+    }
+
+    @GetMapping("/{id}")
+    public TopicDetailsDto details(@PathVariable String id){
+        Topic topic = topicsRepository.findById(id).get();
+        return new TopicDetailsDto(topic);
     }
 }
