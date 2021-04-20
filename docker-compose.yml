@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  mongo.forum.dev:
+    container_name: mongo.forum.dev
+    image: mongo:4.0
+    volumes:
+      - mongo_forum_db:/data
+    ports:
+      - "27017:27017"
+    networks:
+      - bubble
+
+networks:
+  bubble:
+    external: true
+
+volumes:
+  mongo_forum_db:

@@ -1,11 +1,15 @@
 package br.com.alura.forum.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Document(collection = "topic")
 public class Topic {
-
+    @Id
     private Long id;
     private String title;
     private String message;
@@ -14,12 +18,6 @@ public class Topic {
     private User author;
     private Course course;
     private List<Answer> answer = new ArrayList<>();
-
-    public Topic(String title, String message, Course course) {
-        this.title = title;
-        this.message = message;
-        this.course = course;
-    }
 
     @Override
     public int hashCode() {

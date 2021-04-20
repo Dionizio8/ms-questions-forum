@@ -1,7 +1,11 @@
 package br.com.alura.forum.model;
 
-public class Course {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "course")
+public class Course {
+    @Id
     private Long id;
     private String name;
     private String category;

@@ -1,9 +1,13 @@
 package br.com.alura.forum.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 
+@Document(collection = "answer")
 public class Answer {
-
+    @Id
     private Long id;
     private String message;
     private Topic topic;
