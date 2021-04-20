@@ -1,6 +1,7 @@
 package br.com.alura.forum.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -8,10 +9,10 @@ import java.time.LocalDateTime;
 @Document(collection = "answer")
 public class Answer {
     @Id
-    private Long id;
+    private String id;
     private String message;
     private Topic topic;
-    private LocalDateTime dateCreation= LocalDateTime.now();
+    private LocalDateTime dateCreation = LocalDateTime.now();
     private User author;
     private Boolean solution = false;
 
@@ -40,11 +41,11 @@ public class Answer {
         return true;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

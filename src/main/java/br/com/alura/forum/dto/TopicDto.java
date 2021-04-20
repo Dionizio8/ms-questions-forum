@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class TopicDto {
 
-    private Long id;
+    private String id;
     private String title;
     private String message;
     private LocalDateTime dateCreation;
@@ -24,7 +24,7 @@ public class TopicDto {
         return topics.stream().map(TopicDto::new).collect(Collectors.toList());
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

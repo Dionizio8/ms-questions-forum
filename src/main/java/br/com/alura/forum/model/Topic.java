@@ -1,6 +1,7 @@
 package br.com.alura.forum.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -10,7 +11,7 @@ import java.util.List;
 @Document(collection = "topic")
 public class Topic {
     @Id
-    private Long id;
+    private String id;
     private String title;
     private String message;
     private LocalDateTime dateCreation = LocalDateTime.now();
@@ -18,6 +19,15 @@ public class Topic {
     private User author;
     private Course course;
     private List<Answer> answer = new ArrayList<>();
+
+    public Topic() {
+    }
+
+    public Topic(String title, String message, Course course) {
+        this.title = title;
+        this.message = message;
+        this.course = course;
+    }
 
     @Override
     public int hashCode() {
@@ -44,11 +54,11 @@ public class Topic {
         return true;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
