@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "0cb082ae-3a5d-4636-9bfa-ca4788de2d4a",
+		"name": "ms-quations-forum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE NEW TOPIC",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"TESTEEEE\",\n    \"message\": \"Como salvar novo wokspace 3\",\n    \"nameCourse\": \"html\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/topics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CREATE NEW TOPIC",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"\",\n    \"message\": \"Como salvar novo wokspace 2\",\n    \"nameCourse\": \"html\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/topics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"topics"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Apr 2021 20:24:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"parameter\": \"title\",\n        \"error\": \"length must be between 5 and 2147483647\"\n    },\n    {\n        \"parameter\": \"title\",\n        \"error\": \"must not be empty\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "LIST TOPICS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/topics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "LIST TOPICS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/topics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"topics"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Apr 2021 19:08:06 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"607ed98ae16a951a69ed1cb0\",\n        \"title\": \"Dúvida\",\n        \"message\": \"Erro ao criar projeto\",\n        \"dateCreation\": \"2021-04-20T16:08:06.7643\"\n    },\n    {\n        \"id\": \"607ed9ace16a951a69ed1cb1\",\n        \"title\": \"Dúvida 2\",\n        \"message\": \"Projeto não compila\",\n        \"dateCreation\": \"2021-04-20T16:08:06.777948\"\n    },\n    {\n        \"id\": \"607ed9c4e16a951a69ed1cb2\",\n        \"title\": \"Dúvida 3\",\n        \"message\": \"Tag HTML\",\n        \"dateCreation\": \"2021-04-20T16:08:06.778134\"\n    },\n    {\n        \"id\": \"607f24756317667768db6760\",\n        \"title\": \"Dúvida Postamn\",\n        \"message\": \"Como salvar novo wokspace\",\n        \"dateCreation\": \"2021-04-20T15:59:01.548\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "DETAILS TOPIC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/topics/607ed98ae16a951a69ed1cb0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics",
+						"607ed98ae16a951a69ed1cb0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DETAILS TOPIC",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/topics/607ed98ae16a951a69ed1cb0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"topics",
+								"607ed98ae16a951a69ed1cb0"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Apr 2021 23:05:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"607ed98ae16a951a69ed1cb0\",\n    \"title\": \"Dúvida\",\n    \"message\": \"Erro ao criar projeto\",\n    \"dateCreation\": \"2021-04-20T20:05:42.83348\",\n    \"nameAuthor\": \"Gabriel Dionizio Pereira\",\n    \"status\": \"NOT_ANSWERED\",\n    \"answers\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "EDIT TOPIC",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Duvida Nova 2\",\n    \"message\":\"Nova duvida sobre update\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/topics/607ed98ae16a951a69ed1cb0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics",
+						"607ed98ae16a951a69ed1cb0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "EDIT TOPIC",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Duvida Nova 2\",\n    \"message\":\"Nova duvida sobre update\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/topics/607ed98ae16a951a69ed1cb0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"topics",
+								"607ed98ae16a951a69ed1cb0"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Apr 2021 23:45:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"parameter\": \"message\",\n        \"error\": \"não deve ser nulo\"\n    },\n    {\n        \"parameter\": \"message\",\n        \"error\": \"não deve estar vazio\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "DELETE TOPIC",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/topics/607f304d6378691bb98f269c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics",
+						"607f304d6378691bb98f269c"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE TOPIC",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/topics/607f304d6378691bb98f269c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"topics",
+								"607f304d6378691bb98f269c"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 Apr 2021 00:19:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

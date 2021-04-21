@@ -52,23 +52,34 @@ public class TopicsController {
     }
 
     @GetMapping("/{id}")
-    public TopicDetailsDto details(@PathVariable String id) {
-        Topic topic = topicsRepository.findById(id).get();
-        return new TopicDetailsDto(topic);
+    public ResponseEntity<TopicDetailsDto> details(@PathVariable String id) {
+        Optional<Topic> topic = topicsRepository.findById(id);
+        if (topic.isPresent()) {
+            return ResponseEntity.ok(new TopicDetailsDto(topic.get()));
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<TopicDto> update(@PathVariable String id, @RequestBody @Valid TopicUpdateForm form) {
-        Topic topic = form.update(id, topicsRepository);
-        return ResponseEntity.ok(new TopicDto(topic));
+    public ResponseEntity<TopicDetailsDto> update(@PathVariable String id, @RequestBody @Valid TopicUpdateForm form) {
+        Optional<Topic> optional = topicsRepository.findById(id);
+        if (optional.isPresent()) {
+            Topic topic = form.update(id, topicsRepository);
+            return ResponseEntity.ok(new TopicDetailsDto(topic));
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity<?> delete(@PathVariable String id) {
-        topicsRepository.deleteById(id);
-        return ResponseEntity.ok().build();
+        Optional<Topic> optional = topicsRepository.findById(id);
+        if (optional.isPresent()) {
+            topicsRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }
